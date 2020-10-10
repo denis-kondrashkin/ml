@@ -1,0 +1,195 @@
+
+###------------------------- NN Settings, train errors and test/validation accuracy ------------------------------------
+
+###---------------------------------------------------------------------------------------------------------------------
+
+net = Sequential()
+net.add(Linear(28 * 28, 256))
+net.add(BatchNormalization())
+net.add(ChannelwiseScaling(256))
+net.add(LeakyReLU())
+net.add(Linear(256, 64))
+net.add(BatchNormalization())
+net.add(ChannelwiseScaling(64))
+net.add(LeakyReLU())
+net.add(Dropout())
+net.add(Linear(64, 10))
+net.add(BatchNormalization())
+net.add(ChannelwiseScaling(10))
+net.add(LogSoftMax())
+
+criterion = ClassNLLCriterion()
+
+optimizer = adam_optimizer
+optimizer_config = {'learning_rate': 1e-3, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-8}
+n_epoch = 30
+batch_size = 512
+
+Current loss at 0 iteration: 0.897975
+Current loss at 1 iteration: 0.520399
+Current loss at 2 iteration: 0.302942
+Current loss at 3 iteration: 0.232657
+Current loss at 4 iteration: 0.188458
+Current loss at 5 iteration: 0.149502
+Current loss at 6 iteration: 0.103658
+Current loss at 7 iteration: 0.144385
+Current loss at 8 iteration: 0.125581
+Current loss at 9 iteration: 0.095385
+Current loss at 10 iteration: 0.087973
+Current loss at 11 iteration: 0.059190
+Current loss at 12 iteration: 0.057839
+Current loss at 13 iteration: 0.073785
+Current loss at 14 iteration: 0.076346
+Current loss at 15 iteration: 0.087724
+Current loss at 16 iteration: 0.046008
+Current loss at 17 iteration: 0.051588
+Current loss at 18 iteration: 0.064611
+Current loss at 19 iteration: 0.054096
+Current loss at 20 iteration: 0.033956
+Current loss at 21 iteration: 0.045443
+Current loss at 22 iteration: 0.057196
+Current loss at 23 iteration: 0.041446
+Current loss at 24 iteration: 0.044258
+Current loss at 25 iteration: 0.047563
+Current loss at 26 iteration: 0.020821
+Current loss at 27 iteration: 0.028825
+Current loss at 28 iteration: 0.025720
+Current loss at 29 iteration: 0.029364
+97.89999999999999
+98.16
+
+###---------------------------------------------------------------------------------------------------------------------
+
+net = Sequential()
+net.add(Conv2d(1, 4, 3))
+net.add(MaxPool2d(2))
+net.add(LeakyReLU())
+net.add(Conv2d(4, 8, 3))
+net.add(LeakyReLU())
+net.add(MaxPool2d(2))
+net.add(Flatten())
+net.add(Linear(8 * 7 * 7, 10))
+net.add(LogSoftMax())
+
+criterion = ClassNLLCriterion()
+
+optimizer = adam_optimizer
+optimizer_config = {'learning_rate': 1e-3, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-8}
+n_epoch = 30
+batch_size = 512
+
+Current loss at 0 iteration: 0.226816
+Current loss at 1 iteration: 0.155825
+Current loss at 2 iteration: 0.102643
+Current loss at 3 iteration: 0.087575
+Current loss at 4 iteration: 0.079985
+Current loss at 5 iteration: 0.096838
+Current loss at 6 iteration: 0.034536
+Current loss at 7 iteration: 0.068206
+Current loss at 8 iteration: 0.080147
+Current loss at 9 iteration: 0.042736
+97.92999999999999
+97.95
+
+###---------------------------------------------------------------------------------------------------------------------
+
+net = Sequential()
+net.add(Conv2d(1, 4, 3))
+net.add(MaxPool2d(2))
+net.add(LeakyReLU())
+net.add(Conv2d(4, 8, 3))
+net.add(LeakyReLU())
+net.add(MaxPool2d(2))
+net.add(Flatten())
+net.add(Linear(8 * 7 * 7, 64))
+net.add(BatchNormalization())
+net.add(ChannelwiseScaling(64))
+net.add(LeakyReLU())
+net.add(Dropout())
+net.add(Linear(64, 10))
+net.add(LogSoftMax())
+
+criterion = ClassNLLCriterion()
+
+optimizer = adam_optimizer
+optimizer_config = {'learning_rate': 1e-3, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-8}
+n_epoch = 30
+batch_size = 512
+
+Current loss at 0 iteration: 1.390798
+Current loss at 1 iteration: 0.544807
+Current loss at 2 iteration: 0.279031
+Current loss at 3 iteration: 0.247820
+Current loss at 4 iteration: 0.206594
+Current loss at 5 iteration: 0.160445
+Current loss at 6 iteration: 0.163759
+Current loss at 7 iteration: 0.168064
+Current loss at 8 iteration: 0.157615
+Current loss at 9 iteration: 0.140891
+Current loss at 10 iteration: 0.136467
+Current loss at 11 iteration: 0.107473
+Current loss at 12 iteration: 0.082483
+Current loss at 13 iteration: 0.098340
+Current loss at 14 iteration: 0.164719
+98.14
+98.38
+
+###---------------------------------------------------------------------------------------------------------------------
+
+net = Sequential()
+net.add(Conv2d(1, 6, 3))
+net.add(MaxPool2d(2))
+net.add(LeakyReLU())
+net.add(Conv2d(6, 12, 3))
+net.add(LeakyReLU())
+net.add(MaxPool2d(2))
+net.add(Flatten())
+net.add(Linear(12 * 7 * 7, 64))
+net.add(BatchNormalization())
+net.add(ChannelwiseScaling(64))
+net.add(LeakyReLU())
+net.add(Dropout())
+net.add(Linear(64, 10))
+net.add(LogSoftMax())
+
+criterion = ClassNLLCriterion()
+
+optimizer = adam_optimizer
+optimizer_config = {'learning_rate': 1e-3, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-8}
+n_epoch = 30
+batch_size = 512
+
+Current loss at 0 iteration: 1.403720
+Current loss at 1 iteration: 0.482598
+Current loss at 2 iteration: 0.286047
+Current loss at 3 iteration: 0.178766
+Current loss at 4 iteration: 0.159012
+Current loss at 5 iteration: 0.149490
+Current loss at 6 iteration: 0.145865
+Current loss at 7 iteration: 0.111035
+Current loss at 8 iteration: 0.103211
+Current loss at 9 iteration: 0.104896
+Current loss at 10 iteration: 0.108259
+Current loss at 11 iteration: 0.113744
+Current loss at 12 iteration: 0.068496
+Current loss at 13 iteration: 0.070649
+Current loss at 14 iteration: 0.070942
+Current loss at 15 iteration: 0.063512
+Current loss at 16 iteration: 0.077084
+Current loss at 17 iteration: 0.072444
+Current loss at 18 iteration: 0.056371
+Current loss at 19 iteration: 0.076477
+Current loss at 20 iteration: 0.048335
+Current loss at 21 iteration: 0.048386
+Current loss at 22 iteration: 0.069435
+Current loss at 23 iteration: 0.054356
+Current loss at 24 iteration: 0.045984
+Current loss at 25 iteration: 0.050010
+Current loss at 26 iteration: 0.032989
+Current loss at 27 iteration: 0.029316
+Current loss at 28 iteration: 0.032681
+Current loss at 29 iteration: 0.067449
+98.65
+98.8
+
+###---------------------------------------------------------------------------------------------------------------------
